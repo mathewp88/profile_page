@@ -21,7 +21,24 @@ class Messaging extends StatelessWidget {
           backgroundColor: Colors.black,
           elevation: 0.0,
         ),
-        body: Center(),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Message...',
+                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
+                  suffixIcon: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
+              ),
+            ),
+            SizedBox(height: 30.0),
+          ],
+        ),
         );
   }
 }
