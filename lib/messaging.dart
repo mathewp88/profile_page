@@ -9,6 +9,7 @@ class Messaging extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var msgController = TextEditingController();
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -25,17 +26,17 @@ class Messaging extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             TextField(
+              controller: msgController,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Message...',
                   hintStyle: TextStyle(fontSize: 20.0, color: Colors.white),
-                  suffixIcon: Icon(
-                    Icons.send,
-                    color: Colors.white,
+                  suffixIcon: IconButton(icon: Icon(Icons.send), onPressed: () {
+                    msgController.clear();
+                  }),
                   ),
               ),
-            ),
             SizedBox(height: 30.0),
           ],
         ),
