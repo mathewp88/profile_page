@@ -13,7 +13,7 @@ class Messaging extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("Profile Page"),
+          title: Text("Messaging Page"),
           actions: <Widget>[
             IconButton(icon: Icon(Icons.video_call), onPressed: () {}),
             IconButton(icon: Icon(Icons.call), onPressed: () {}),
