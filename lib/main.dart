@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'messaging.dart';
 
 void main() => runApp(MaterialApp(
   home: ProfilePage(),
@@ -65,6 +66,8 @@ class Options extends StatefulWidget {
 }
 
 class _OptionsState extends State<Options> {
+  String followstatus = 'Follow';
+  String addstatus = 'Add';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,7 +86,7 @@ class _OptionsState extends State<Options> {
                     context: context,
                     builder: (BuildContext context) {
                       return Dialog(
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.black87,
                         shape: RoundedRectangleBorder(
                             borderRadius:
                             BorderRadius.circular(20.0)), //this right here
@@ -114,7 +117,7 @@ class _OptionsState extends State<Options> {
                                       Navigator.of(context).pop();
                                     },
                                     child: Text(
-                                      "Save",
+                                      "OK",
                                     ),
                                   ),
                                 )
@@ -124,8 +127,9 @@ class _OptionsState extends State<Options> {
                         ),
                       );
                     });
+                setState(() => addstatus = 'Added');
               },
-              child: Text('Add'),
+              child: Text(addstatus),
             ),
           ),
           SizedBox(width: 10.0),
@@ -135,8 +139,10 @@ class _OptionsState extends State<Options> {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.purpleAccent),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
               ),
-              onPressed: () { },
-              child: Text('Follow'),
+              onPressed: () {
+                setState(() => followstatus = 'Following');
+              },
+              child: Text(followstatus),
             ),
           ),
           SizedBox(width: 10.0),
@@ -146,7 +152,12 @@ class _OptionsState extends State<Options> {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.lightGreenAccent),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
               ),
-              onPressed: () { },
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Messaging()),
+                );
+              },
               child: Text('Message'),
             ),
           ),
